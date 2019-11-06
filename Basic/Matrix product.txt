@@ -1,0 +1,74 @@
+/*  WAP TO FIND THE PRODUCT OF TWO MATRICES A AND B. DISPLAY THE SOURCE MATRICES AND PRODUCT MATRIX C IN  MATRIX FORMAT
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+
+        BY
+            MD. ASHHAR JAWAID
+            BE/1069/11
+
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+
+#include<stdio.h>
+int main()
+{
+    int a[10][10], b[10][10], c[10][10],p,q,r,s,i,j,k;
+    printf("Enter no.of rows and columns of matrix A: ");
+    scanf("%d%d",&p,&q);
+    printf("Enter no.of rows and columns of matrix B: ");
+    scanf("%d%d",&r,&s);
+
+    if(p>10 || q>10 || r>10 || s>10)
+        printf("Matrix too large to multiply");
+
+    if(q!=r)
+        printf("Matrices cannot be multiplied");
+
+    else
+    {
+        printf("Enter the %d elements of matrix A: ",p*q);
+        for(i=0;i<p;i++)
+            for(j=0;j<q;j++)
+                scanf("%d",&a[i][j]);
+
+        printf("Enter the %d elements of matrix B: ",r*s);
+        for(i=0;i<r;i++)
+            for(j=0;j<s;j++)
+                scanf("%d",&b[i][j]);
+
+        for(i=0;i<p;i++)
+            for(j=0;j<s;j++)
+            {
+                c[i][j]=0;
+                for(k=0;k<q;k++)
+                    c[i][j]+=a[i][k]*b[k][j];
+            }
+
+        printf("Matrix A is\n");
+        for(i=0;i<p;i++)
+        {
+            for(j=0;j<q;j++)
+                printf("%d\t",a[i][j]);
+            printf("\n");
+        }
+
+        printf("Matrix B is\n");
+        for(i=0;i<r;i++)
+        {
+            for(j=0;j<s;j++)
+                printf("%d\t",b[i][j]);
+            printf("\n");
+        }
+
+        printf("Product Matrix C is\n");
+        for(i=0;i<p;i++)
+        {
+            for(j=0;j<s;j++)
+                printf("%d\t",c[i][j]);
+            printf("\n");
+        }
+    }
+    return 0;
+}

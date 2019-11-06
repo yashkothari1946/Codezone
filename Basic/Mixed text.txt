@@ -1,0 +1,39 @@
+/*  READ A LINE OF MIXED TEXT, AND THEN WRITE IT OUT WITH ALL LOWERCASE AND UPPERCASE REVERSED, ALL DIGITS REPLACES BY 0 AND ALL OTHER
+    CHARACTERS(NON-LETTERS & NONO-DIGITS) REPLACED BY'*'
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+
+        BY
+            MD. ASHHAR JAWAID
+            BE/1069/11
+
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+
+#include<stdio.h>
+#include<ctype.h>
+int main()
+{
+    char str[100];
+    int i;
+    printf("Enter the text:");
+    gets(str);
+
+    for(i=0;i<100 && str[i]!='\0';i++)
+    {
+        if (islower(str[i]))
+            str[i]=toupper(str[i]);
+        else
+            if(isupper(str[i]))
+                str[i]=tolower(str[i]);
+        else
+            if(isdigit(str[i]))
+                str[i]='0';
+        else
+            str[i]='*';
+    }
+    printf("coded string is %s",str);
+    return 0;
+}

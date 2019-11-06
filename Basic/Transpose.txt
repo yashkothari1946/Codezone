@@ -1,0 +1,47 @@
+/*  WAP TO FIND THE TRANSPOSE OF A MATRIX. DISPLAY THE SOURCE AND THE TRANSPOSED MATRIX IN MATRIX FORMAT
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+
+        BY
+            MD. ASHHAR JAWAID
+            BE/1069/11
+
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+
+#include<stdio.h>
+int main()
+{
+    int a[10][10], b[10][10],r,i,j;
+    printf("Enter the no. of rows/columns of the square matrix:");
+    scanf("%d",&r);
+    if(r>10)
+        printf("Matrix too large");
+    else
+    {
+        printf("Enter the %d elements of the matrix:",r*r);
+        for (i=0;i<r;i++)
+            for(j=0;j<r;j++)
+                scanf("%d",&a[i][j]);
+        printf("Input matrix is \n");
+        for (i=0;i<r;i++)
+            {
+                for(j=0;j<r;j++)
+                    printf("%d\t",a[i][j]);
+                printf("\n");
+            }
+        printf("Transpose Matrix is\n");
+        for (i=0;i<r;i++)
+            {
+                for(j=0;j<r;j++)
+                {
+                    b[i][j]=a[j][i];
+                    printf("%d\t",b[i][j]);
+                }
+                printf("\n");
+            }
+    }
+    return 0;
+}

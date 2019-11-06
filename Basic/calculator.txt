@@ -1,0 +1,33 @@
+/*  WAP TO SIMULATE A SIMPLE CALCULATOR (+-/*?) THAT TAKES TWO OPERANDS AND AN OPERATOR AS INPUT AND DISPLAYS THE RESULT
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+
+        BY
+            MD. ASHHAR JAWAID
+            BE/1069/11
+
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+ */
+
+
+#include<stdio.h>
+int main()
+{
+    int a,b,c;
+    printf("Enter 2 numbers:");
+    scanf("%d%d",&a,&b);
+    printf("Enter 1 for sum, 2 for diff, 3 for product, 4 for division:");
+    scanf("%d",&c);
+
+    switch (c)
+    {
+        case 1: printf("Sum = %d",a+b);           break;
+        case 2: printf("Difference = %d",a-b);    break;
+        case 3: printf("Product = %d",a*b);       break;
+        case 4: printf("Quotient = %d",a/b);
+                  printf("\tRemainder = %d",a%b); break;
+        default : printf("Error");                break;
+    }
+    return 0;
+}

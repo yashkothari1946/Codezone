@@ -1,0 +1,116 @@
+/*--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+
+        BY
+            MD. ASHHAR JAWAID
+            BE/1069/11
+
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/#include<stdio.h>
+int scan(int x[10][10], int M, int N)
+{
+    int i,j;
+    for(i=0;i<M;i++)
+        for(j=0;j<N;j++)
+            scanf("%d",&x[i][j]);
+}
+
+int print(int x[10][10], int M, int N)
+{
+    int i,j;
+    for(i=0;i<M;i++)
+        {
+            for(j=0;j<N;j++)
+                printf("%d\t",&x[i][j]);
+            printf("\n");
+        }
+}
+int triangle(int r,int a[10][10])
+{
+    int i,j,flag=1;
+    for(i=0;i<r;i++)
+        for(j=i;j<r;j++)
+        {
+            if(a[i][j]!=0)
+            {
+                flag=0;i=r;break;
+            }
+        }
+        if(flag==0)
+        {
+            flag=1;
+            for(i=0;i<r;i++)
+                for(j=0;j<=i;j++)
+                    if(a[i][j]!=0)
+                    {
+                        flag=0;i=r;break;
+                    }
+        }
+        if(flag)
+        printf("It is a triangular matrix\n");
+        else
+        printf("It is not a triangular matrix\n");
+
+}
+
+int transpose(int r, int c, int a[10][10])
+{
+  int i,j;
+  for(j=0;j<c;j++)
+  {
+    for(i=0;i<r;i++)
+    printf("%d ",a[i][j]);
+    printf("\n");
+  }
+}
+
+int multiply(int r1, int c1, int a[10][10])
+{
+    int b[10][10],c[10][10];
+    int r2,c2,i,j,k;
+    for(i=0;i<10;i++)
+    for(j=0;j<10;j++)
+    c[i][j]=0;
+    printf("Enter no. of rows and columns of matrix 2 :");
+    scanf("%d%d",&r2,&c2);
+    printf("Enter Matrix 2 :\n");
+    for(i=0;i<r2;i++)
+    for(j=0;j<c2;j++)
+    scanf("%d",&b[i][j]);
+    if(c1!=r2)
+    {
+    printf("Multiplication not possible");
+    return -1;
+    }
+    for(i=0;i<r1;i++)
+    {
+    for(j=0;j<c2;j++)
+    {
+    for(k=0;k<c1;k++)
+    c[i][j]+=a[i][k]*b[k][j];
+    }
+    }
+    printf("Matrix A:\n");
+    print(r1,c1,a);
+    printf("Matrix B:\n");
+    print(r2,c2,b);
+    printf("AxB\n");
+    print(r1,c2,c);
+}
+
+int main()
+{
+    int a[10][10],r,c,ch;
+    printf("Enter no of rows and columns : ");scanf("%d%d",&r,&c);
+    printf("Enter Matrix :\n");
+
+    scan(a,r,c);
+    multiply(r,c,a);
+    triangle(r,c,a);
+    printf("Transpose:\n");
+    transpose(r,c,a);
+
+    return 0;
+}
+

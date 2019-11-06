@@ -1,0 +1,38 @@
+/*  WAP TO FIND WHETHER A GIVEN YEAR IS A LEAP YEAR OR NOT. MODIFY IT TO GENERATE A LIST OF LEAP YEARS BETWEEN TWO YEAR LIMIT GIVEN BY
+    USER
+
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+
+        BY
+            MD. ASHHAR JAWAID
+            BE/1069/11
+
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+
+#include<stdio.h>
+int main()
+{
+    int a,b,c,i;
+    printf("Enter a specific year:");
+    scanf("%d",&a);
+    if(a%400==0 || (a%100!=0 && a%4==0))
+        printf("It is a leap year");
+    else
+        printf("It is not a leap year");
+
+    printf("\n\nEnter starting year:");
+    scanf("%d",&b);
+    printf("Enter ending year:");
+    scanf("%d",&c);
+
+    for (i=b;i<=c;i++)
+    {
+        if(i%400==0 || (i%100!=0 && i%4==0))
+            printf("%d\t",i);
+    }
+    return 0;
+}

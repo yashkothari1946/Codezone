@@ -1,0 +1,59 @@
+/*  WRITE AN INTERACTIVE PROGRAM THAT WILL READ IN A +VE INTEGER VALUE AND DETERMINE THE FOLLOWWING
+    1. IF THE INTEGER IS A PRIME NUMBER
+    2. IF THE INTEGER IS A FIBONACCI NUMBER
+
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+
+        BY
+            MD. ASHHAR JAWAID
+            BE/1069/11
+
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------*/
+
+#include<stdio.h>
+int main()
+{
+    int n,a,b,i,c,flag;
+    printf("Enter a number:");
+
+    flag=1;
+
+    scanf("%d",&n);
+
+        for (i=2;i<=n/2;i++)
+        {
+            if(n%i==0)
+            {
+                printf("\nIt is not a prime number");
+                flag=0;
+                break;
+            }
+        }
+
+        if(flag)
+            printf("It is a prime number");
+    {
+        a=1;
+        b=1;
+        c=1;
+
+        flag=0;
+        while(c<=n)
+        {
+            if(c==n)
+            {
+                printf("\nIt is a fibonacci number");
+                flag=1;
+                break;
+            }
+            c=a+b;
+            a=b;
+            b=c;
+        }
+        if(!flag)
+        printf("\nIt is not a fibonacci number");
+    }
+    return 0;
+}

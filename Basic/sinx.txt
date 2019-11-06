@@ -1,0 +1,38 @@
+/*  WAP IN C TO COMPUTE SINX = X - X^3/3! + X^5/5!...... CONTINUE ADDING SUCCESSIVE TERMS IN THE SERIES UNTIL THE VALUE OF THE NEXT TERM
+    BECOMES SMALLER THAN 10^-5 IN MAGNITUDE. ALSO DISPLAY THE NUMBER OF TERMS USED TO OBTAIN THE FINAL ANSWER.
+
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+
+        BY
+            MD. ASHHAR JAWAID
+            BE/1069/11
+
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+    float sum, term,x;
+    int i,h=0;
+
+    printf ("Enter the no. of radians:");
+    scanf("%f",&x);
+    sum=0; term=x;
+    printf("\n1. %f",term);
+
+    for(i=2;fabs(term)>=0.00001;i++)
+    {
+        sum+=term;
+        term=-term*x*x/((2*i-1)*(2*i-2));
+        h+=1;
+        if (fabs(term)>=0.00001)
+        printf("\n%d. %f",i,term);
+    }
+    printf("\n\nsin(%f)=%f",x,sum);
+    printf("\nNo of terms used: %d\n",h);
+    return 0;
+}
